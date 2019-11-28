@@ -24,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
 //        super.onKeyLongPress(R.id.button, getSearchEvent());
 
         Button button = findViewById(R.id.button);
-        button.setOnClickListener(new );
-
-        super.onBackPressed() ;
+//        button.setOnClickListener();
+//
+//        super.onBackPressed() ;
 
 
     }
