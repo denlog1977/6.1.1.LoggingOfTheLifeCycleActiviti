@@ -114,6 +114,9 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.tv);
         textView.append("\n" + textMessage);
         return super.onKeyDown(keyCode, event);
+        //return true;
+        //return false;
+
     }
 
 
