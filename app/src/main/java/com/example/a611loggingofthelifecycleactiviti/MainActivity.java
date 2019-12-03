@@ -102,7 +102,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        textViewAppend(Thread.currentThread().getStackTrace()[2].getMethodName());
+//        textViewAppend(Thread.currentThread().getStackTrace()[2].getMethodName());
+        Log.i("Lifecycle_DEN",  "onKeyDown keyCode=" + Integer.toString(keyCode) + "\n KeyEvent=" + event.toString());
+        String textMessage = "";
+        if(event.getDeviceId() == 7) {
+            textMessage = "KEYCODE_VOLUME_UP - Увеличение громкости";
+        } else if (event.getDeviceId() == 5) {
+            textMessage = "KEYCODE_VOLUME_DOWN - Уменьшение громкости";
+        }
+        Toast.makeText(this, textMessage, Toast.LENGTH_SHORT).show();
+        TextView textView = findViewById(R.id.tv);
+        textView.append("\n" + textMessage);
         return super.onKeyDown(keyCode, event);
     }
 
