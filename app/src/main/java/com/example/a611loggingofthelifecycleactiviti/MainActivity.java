@@ -28,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.tv);
         textView.append("\n" + methodName);
         textView.append("\nРавен ли входной параметр Bundle null: " + (savedInstanceState == null));
+        if(savedInstanceState != null){
+            textView.setText(savedInstanceState.getString("tv"));
+        } else {
+            textView.setText("");
+        }
         Toast.makeText(this, methodName, Toast.LENGTH_SHORT).show();
         Log.i("Lifecycle_DEN", "Сработало событие " + methodName);
 
@@ -148,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
     public void textViewAppend(String methodName) {
         TextView textView = findViewById(R.id.tv);
         textView.append("\n" + methodName);
-        Toast.makeText(this, methodName, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, methodName, Toast.LENGTH_SHORT).show();
         Log.i("Lifecycle_DEN", "Сработало событие " + methodName);
     }
 }
