@@ -22,19 +22,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        String methodName = Thread.currentThread().getStackTrace()[2].getMethodName();//String methodName = new Object(){}.getClass().getEnclosingMethod().getName();
 //        textViewAppend(Thread.currentThread().getStackTrace()[2].getMethodName());
-        String methodName = Thread.currentThread().getStackTrace()[2].getMethodName();
+
         TextView textView = findViewById(R.id.tv);
-        textView.append("\n" + methodName);
-        textView.append("\nРавен ли входной параметр Bundle null: " + (savedInstanceState == null));
+        String methodName = Thread.currentThread().getStackTrace()[2].getMethodName();//String methodName = new Object(){}.getClass().getEnclosingMethod().getName();
+        Toast.makeText(this, methodName, Toast.LENGTH_SHORT).show();
+        Log.i("Lifecycle_DEN", "Сработало событие " + methodName);
+
         if(savedInstanceState != null){
             textView.setText(savedInstanceState.getString("tv"));
         } else {
             textView.setText("");
         }
+
+
         Toast.makeText(this, methodName, Toast.LENGTH_SHORT).show();
-        Log.i("Lifecycle_DEN", "Сработало событие " + methodName);
+        String bundleNull = "\nРавен ли входной параметр Bundle null: " + (savedInstanceState == null);
+
+        textView.append("\n" + methodName);
+        textView.append(bundleNull);
 
 
 
@@ -153,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
     public void textViewAppend(String methodName) {
         TextView textView = findViewById(R.id.tv);
         textView.append("\n" + methodName);
-//        Toast.makeText(this, methodName, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, methodName, Toast.LENGTH_SHORT).show();
         Log.i("Lifecycle_DEN", "Сработало событие " + methodName);
     }
 }
